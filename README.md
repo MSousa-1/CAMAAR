@@ -125,7 +125,7 @@ Diagrama simplificado das entidades principais para suportar o fluxo de Template
 | [**US-01**](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md) | Login | **4** | 1. Sucesso (Admin).<br>2. Sucesso (Aluno/Participante).<br>3. Falha (Dados inválidos).<br>4. Falha (Campos vazios ou formato de e-mail inválido). |
 | [**US-105**](https://github.com/EngSwCIC/CAMAAR/issues/105) | Definição de Senha | **3** | 1. Sucesso (Senha forte definida).<br>2. Falha (Senha < 8 caracteres).<br>3. Falha (Senhas de confirmação não conferem). |
 
-### [Etapa 2: Ingestão de Dados (SIGAA)](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-2-ingest%C3%A3o-de-dados-sigaa)
+### [Etapa 2: Ingestão de Dados (SIGAA)](https://github.com/MSousa-1/CAMAAR/blob/Sprint-1/README.md#etapa-2-ingest%C3%A3o-de-dados-sigaa)
 
 | ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
 | :--- | :--- | :---: | :--- |
@@ -133,7 +133,7 @@ Diagrama simplificado das entidades principais para suportar o fluxo de Template
 | [**US-100**](https://github.com/EngSwCIC/CAMAAR/issues/100) | Cadastrar Usuários | **3** | 1. Sucesso (Criação de novos usuários).<br>2. Ignorar (Usuários sem e-mail ou matrícula válidos).<br>3. Log de erro (Relatório de registros que falharam). |
 | [**US-108**](https://github.com/EngSwCIC/CAMAAR/issues/108) | Atualizar Base | **4** | 1. Sucesso (Atualizar vínculo de turma de aluno existente).<br>2. Sucesso (Não duplicar registro de usuário já existente).<br>3. Falha (Conflito de ID/Matrícula duplicada no mesmo arquivo).<br>4. Integridade (Aluno removido do JSON original mantém histórico antigo). |
 
-### [Etapa 3: Gestão de Templates](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-3-gest%C3%A3o-de-templates)
+### [Etapa 3: Gestão de Templates](https://github.com/MSousa-1/CAMAAR/blob/Sprint-1/README.md#etapa-3-gest%C3%A3o-de-templates)
 
 | ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
 | :--- | :--- | :---: | :--- |
@@ -141,14 +141,14 @@ Diagrama simplificado das entidades principais para suportar o fluxo de Template
 | [**US-111**](https://github.com/EngSwCIC/CAMAAR/issues/111) | Visualizar Templates | **2** | 1. Visualização (Lista carregada corretamente).<br>2. Estado Vazio (Feedback visual quando não há templates). |
 | [**US-112**](https://github.com/EngSwCIC/CAMAAR/issues/112) | Editar/Deletar | **4** | 1. Sucesso (Editar template sem uso).<br>2. Sucesso (Deletar template sem uso).<br>3. Bloqueio (Tentar editar template já vinculado a formulário respondido).<br>4. Bloqueio (Tentar deletar template já vinculado a histórico). |
 
-### [Etapa 4: Criação e Distribuição de Formulários](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-4-cria%C3%A7%C3%A3o-e-distribui%C3%A7%C3%A3o-de-formul%C3%A1rios)
+### [Etapa 4: Criação e Distribuição de Formulários](https://github.com/MSousa-1/CAMAAR/blob/Sprint-1/README.md#etapa-4-cria%C3%A7%C3%A3o-e-distribui%C3%A7%C3%A3o-de-formul%C3%A1rios)
 
 | ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
 | :--- | :--- | :---: | :--- |
 | [**US-103**](https://github.com/EngSwCIC/CAMAAR/issues/103) | Criar Formulário | **4** | 1. Sucesso (Vínculo Turma + Template criado).<br>2. Falha (Data de Término anterior à Data de Início).<br>3. Falha (Datas no passado).<br>4. Validação (Selecionar turma vazia/sem alunos). |
 | [**US-109**](https://github.com/EngSwCIC/CAMAAR/issues/109) | Ver Pendências | **3** | 1. Sucesso (Visualizar formulário dentro do prazo).<br>2. Ocultação (Não visualizar formulário expirado).<br>3. Ocultação (Não visualizar formulário já respondido pelo aluno). |
 
-### [Etapa 5: Respostas e Resultados](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-5-respostas-e-resultados)
+### [Etapa 5: Respostas e Resultados](https://github.com/MSousa-1/CAMAAR/blob/Sprint-1/README.md#etapa-5-respostas-e-resultados)
 
 | ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
 | :--- | :--- | :---: | :--- |
