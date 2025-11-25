@@ -118,7 +118,7 @@ Diagrama simplificado das entidades principais para suportar o fluxo de Template
 
 ## 4. Cenários de Teste (BDD)
 
-### [Etapa 1 - Autenticação e Gestão de Acesso](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-1-autentica%C3%A7%C3%A3o-e-gest%C3%A3o-de-acesso)
+### [Etapa 1 - Autenticação e Gestão de Acesso](https://github.com/MSousa-1/CAMAAR/Sprint-1/README.md#etapa-1-autentica%C3%A7%C3%A3o-e-gest%C3%A3o-de-acesso)
 
 | ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
 | :--- | :--- | :---: | :--- |
