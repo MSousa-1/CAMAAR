@@ -112,7 +112,7 @@ O desenvolvimento foi organizado em **5 Etapas** para garantir que as dependênc
 ## 3. Modelagem de Dados (Conceitual)
 
 Diagrama simplificado das entidades principais para suportar o fluxo de Templates Dinâmicos e Importação.
-![Diagrama ER](./main/DiagramaER.svg)
+![Diagrama ER](https://github.com/MSousa-1/CAMAAR/blob/Sprint-1/DiagramaER.png)
 
 ---
 
