@@ -2,7 +2,7 @@
 
 Sistema para avaliação de atividades acadêmicas remotas do CIC 
 
-Sendo desenvolvido por: Marcus Vinicius Ramalho de Sousa (executando papéis de Scrum Master e Product Owner)
+Sendo desenvolvido por: Marcus Vinicius Ramalho de Sousa
 
 # Especificação do Projeto e Rota de Desenvolvimento
 
@@ -14,6 +14,8 @@ O **CAMAAR** é um sistema de gerenciamento de formulários onde o administrador
 ## 2. Rota de Desenvolvimento (Roadmap)
 
 O desenvolvimento foi organizado em **5 Etapas** para garantir que as dependências (Dados -> Templates -> Formulários) sejam respeitadas.
+
+**Velocity Total: 80 Pontos**
 
 ### Etapa 1: Autenticação e Gestão de Acesso
 *Foco: Garantir que usuários entrem no sistema e tenham a visualização correta (Admin vs. Usuário).*
@@ -107,7 +109,51 @@ O desenvolvimento foi organizado em **5 Etapas** para garantir que as dependênc
 
 ---
 
-## 5. Modelagem de Dados (Conceitual)
+## 3. Modelagem de Dados (Conceitual)
 
 Diagrama simplificado das entidades principais para suportar o fluxo de Templates Dinâmicos e Importação.
-![Diagrama ER](https://github.com/MSousa-1/CAMAAR/blob/main/DiagramaER.svg)
+![Diagrama ER](./main/DiagramaER.svg)
+
+---
+
+## 4. Cenários de Teste (BDD)
+
+### [Etapa 1 - Autenticação e Gestão de Acesso](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-1-autentica%C3%A7%C3%A3o-e-gest%C3%A3o-de-acesso)
+
+| ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
+| :--- | :--- | :---: | :--- |
+| [**US-01**](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md) | Login | **4** | 1. Sucesso (Admin).<br>2. Sucesso (Aluno/Participante).<br>3. Falha (Dados inválidos).<br>4. Falha (Campos vazios ou formato de e-mail inválido). |
+| [**US-105**](https://github.com/EngSwCIC/CAMAAR/issues/105) | Definição de Senha | **3** | 1. Sucesso (Senha forte definida).<br>2. Falha (Senha < 8 caracteres).<br>3. Falha (Senhas de confirmação não conferem). |
+
+### [Etapa 2: Ingestão de Dados (SIGAA)](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-2-ingest%C3%A3o-de-dados-sigaa)
+
+| ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
+| :--- | :--- | :---: | :--- |
+| [**US-98**](https://github.com/EngSwCIC/CAMAAR/issues/98) | Importar SIGAA | **5** | 1. Sucesso (Arquivo JSON Perfeito).<br>2. Falha (Arquivo corrompido ou extensão incorreta).<br>3. Falha (Estrutura do JSON incorreta - campos obrigatórios faltando).<br>4. Falha (Arquivo excedendo limite de tamanho).<br>5. Validação (Feedback visual de progresso/conclusão). |
+| [**US-100**](https://github.com/EngSwCIC/CAMAAR/issues/100) | Cadastrar Usuários | **3** | 1. Sucesso (Criação de novos usuários).<br>2. Ignorar (Usuários sem e-mail ou matrícula válidos).<br>3. Log de erro (Relatório de registros que falharam). |
+| [**US-108**](https://github.com/EngSwCIC/CAMAAR/issues/108) | Atualizar Base | **4** | 1. Sucesso (Atualizar vínculo de turma de aluno existente).<br>2. Sucesso (Não duplicar registro de usuário já existente).<br>3. Falha (Conflito de ID/Matrícula duplicada no mesmo arquivo).<br>4. Integridade (Aluno removido do JSON original mantém histórico antigo). |
+
+### [Etapa 3: Gestão de Templates](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-3-gest%C3%A3o-de-templates)
+
+| ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
+| :--- | :--- | :---: | :--- |
+| [**US-102**](https://github.com/EngSwCIC/CAMAAR/issues/102) | Criar Template | **3** | 1. Sucesso (Template completo com perguntas).<br>2. Falha (Tentar salvar sem Título).<br>3. Falha (Tentar salvar sem nenhuma pergunta adicionada). |
+| [**US-111**](https://github.com/EngSwCIC/CAMAAR/issues/111) | Visualizar Templates | **2** | 1. Visualização (Lista carregada corretamente).<br>2. Estado Vazio (Feedback visual quando não há templates). |
+| [**US-112**](https://github.com/EngSwCIC/CAMAAR/issues/112) | Editar/Deletar | **4** | 1. Sucesso (Editar template sem uso).<br>2. Sucesso (Deletar template sem uso).<br>3. Bloqueio (Tentar editar template já vinculado a formulário respondido).<br>4. Bloqueio (Tentar deletar template já vinculado a histórico). |
+
+### [Etapa 4: Criação e Distribuição de Formulários](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-4-cria%C3%A7%C3%A3o-e-distribui%C3%A7%C3%A3o-de-formul%C3%A1rios)
+
+| ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
+| :--- | :--- | :---: | :--- |
+| [**US-103**](https://github.com/EngSwCIC/CAMAAR/issues/103) | Criar Formulário | **4** | 1. Sucesso (Vínculo Turma + Template criado).<br>2. Falha (Data de Término anterior à Data de Início).<br>3. Falha (Datas no passado).<br>4. Validação (Selecionar turma vazia/sem alunos). |
+| [**US-109**](https://github.com/EngSwCIC/CAMAAR/issues/109) | Ver Pendências | **3** | 1. Sucesso (Visualizar formulário dentro do prazo).<br>2. Ocultação (Não visualizar formulário expirado).<br>3. Ocultação (Não visualizar formulário já respondido pelo aluno). |
+
+### [Etapa 5: Respostas e Resultados](https://github.com/MSousa-1/CAMAAR/edit/Sprint-1/README.md#etapa-5-respostas-e-resultados)
+
+| ID | História de Usuário | Qtd. Testes | Detalhamento dos Cenários (BDD) |
+| :--- | :--- | :---: | :--- |
+| [**US-99**](https://github.com/EngSwCIC/CAMAAR/issues/99) | Responder | **5** | 1. Sucesso (Fluxo completo de resposta).<br>2. Falha (Tentar enviar com obrigatórias em branco).<br>3. Segurança (Idempotência - Bloquear envio duplicado).<br>4. Segurança (Tentar alterar respostas via API após envio).<br>5. UI (Feedback de sucesso após submissão). |
+| [**US-110**](https://github.com/EngSwCIC/CAMAAR/issues/110) | Status | **2** | 1. Precisão (Contagem correta de respondentes vs total).<br>2. Status correto (Aberto/Fechado baseado na data). |
+| [**US-101**](https://github.com/EngSwCIC/CAMAAR/issues/101) | Exportar CSV | **3** | 1. Sucesso (Download e validação das colunas/linhas).<br>2. Tratamento (Sanitização de caracteres especiais no texto).<br>3. Estado Vazio (Tentativa de baixar CSV de formulário sem respostas). |
+
+---
